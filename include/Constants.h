@@ -178,20 +178,12 @@ namespace Constants {
     // ==================== ІКОНКИ/ЕМОДЗІ ====================
 
     namespace Icons {
-        const std::string HOTEL = "🏨";
-        const std::string ROOM = "🛏️";
-        const std::string GUEST = "👤";
-        const std::string BOOKING = "📅";
         const std::string SUCCESS = "✅";
         const std::string ERROR = "❌";
         const std::string WARNING = "⚠️";
         const std::string INFO = "ℹ️";
-        const std::string SEARCH = "🔍";
-        const std::string ADMIN = "👨‍💼";
         const std::string STAR = "★";
         const std::string EMPTY_STAR = "☆";
-        const std::string FREE = "✅";
-        const std::string OCCUPIED = "❌";
     }
 
     // ==================== ЧИСЛОВІ КОНСТАНТИ ====================
