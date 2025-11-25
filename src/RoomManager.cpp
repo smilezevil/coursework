@@ -6,6 +6,7 @@
  */
 
 #include "../include/RoomManager.h"
+#include "../include/Constants.h"
 #include <fstream>
 #include <algorithm>
 #include <iostream>
@@ -13,7 +14,7 @@
 /**
  * @brief Конструктор за замовчуванням
  */
-RoomManager::RoomManager() : filename("data_rooms.csv") {
+RoomManager::RoomManager() : filename(Constants::Files::ROOMS) {
 }
 
 /**
@@ -336,7 +337,7 @@ void RoomManager::displayByHotelId(int hotelId) const {
 bool RoomManager::loadFromFile() {
     std::ifstream file(filename);
     if (!file.is_open()) {
-        std::cerr << "Не вдалося відкрити файл: " << filename << std::endl;
+        std::cerr << Constants::Messages::ERR_FILE_OPEN << filename << std::endl;
         return false;
     }
 
@@ -354,7 +355,7 @@ bool RoomManager::loadFromFile() {
         file.close();
         return true;
     } catch (const std::exception& e) {
-        std::cerr << "Помилка при завантаженні даних: " << e.what() << std::endl;
+        std::cerr << Constants::Messages::ERR_LOAD_DATA << e.what() << std::endl;
         file.close();
         return false;
     }
@@ -366,7 +367,7 @@ bool RoomManager::loadFromFile() {
 bool RoomManager::saveToFile() const {
     std::ofstream file(filename);
     if (!file.is_open()) {
-        std::cerr << "Не вдалося відкрити файл для запису: " << filename << std::endl;
+        std::cerr << Constants::Messages::ERR_FILE_SAVE << filename << std::endl;
         return false;
     }
 
@@ -377,7 +378,7 @@ bool RoomManager::saveToFile() const {
         file.close();
         return true;
     } catch (const std::exception& e) {
-        std::cerr << "Помилка при збереженні даних: " << e.what() << std::endl;
+        std::cerr << Constants::Messages::ERR_SAVE_DATA << e.what() << std::endl;
         file.close();
         return false;
     }

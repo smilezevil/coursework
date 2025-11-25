@@ -6,6 +6,7 @@
  */
 
 #include "../include/Hotel.h"
+#include "../include/Constants.h"
 #include <sstream>
 #include <stdexcept>
 #include <iomanip>
@@ -128,7 +129,7 @@ void Hotel::setCity(const std::string& city) {
 }
 
 void Hotel::setStars(int stars) {
-    if (stars < 1 || stars > 5) {
+    if (stars < Constants::Limits::MIN_STARS || stars > Constants::Limits::MAX_STARS) {
         throw std::invalid_argument("Кількість зірок має бути від 1 до 5");
     }
     this->stars = stars;
@@ -163,7 +164,7 @@ bool Hotel::validate() const {
     if (city.empty()) {
         return false;
     }
-    if (stars < 1 || stars > 5) {
+    if (stars < Constants::Limits::MIN_STARS || stars > Constants::Limits::MAX_STARS) {
         return false;
     }
     return true;

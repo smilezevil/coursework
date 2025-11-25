@@ -6,6 +6,7 @@
  */
 
 #include "../include/UserManager.h"
+#include "../include/Constants.h"
 #include <fstream>
 #include <algorithm>
 #include <iostream>
@@ -13,8 +14,7 @@
 /**
  * @brief Конструктор за замовчуванням
  */
-UserManager::UserManager() : filename("users.txt"), currentUser(nullptr) {
-    initializeDefaultAdmin();
+UserManager::UserManager() : filename(Constants::Files::USERS), currentUser(nullptr) {
 }
 
 /**
@@ -79,9 +79,10 @@ UserManager& UserManager::operator=(UserManager&& other) noexcept {
  */
 void UserManager::initializeDefaultAdmin() {
     // Перевіряємо, чи вже є адміністратор
-    if (!userExists("admin")) {
+    if (!userExists(Constants::DefaultUser::ADMIN_LOGIN)) {
         try {
-            User admin("admin", "admin", true);
+            User admin(Constants::DefaultUser::ADMIN_LOGIN,
+                       Constants::DefaultUser::ADMIN_PASSWORD, true);
             users.push_back(admin);
         } catch (const std::exception& e) {
             std::cerr << "Помилка створення адміністратора: " << e.what() << std::endl;
@@ -154,7 +155,7 @@ bool UserManager::addUser(const User& user) {
  */
 bool UserManager::deleteUser(const std::string& username) {
     // Не можна видалити admin
-    if (username == "admin") {
+    if (username == Constants::DefaultUser::ADMIN_LOGIN) {
         std::cerr << "Не можна видалити адміністратора!" << std::endl;
         return false;
     }
@@ -253,7 +254,7 @@ bool UserManager::loadFromFile() {
         file.close();
 
         // Якщо після завантаження немає адміністратора, створюємо його
-        if (!userExists("admin")) {
+        if (!userExists(Constants::DefaultUser::ADMIN_LOGIN)) {
             initializeDefaultAdmin();
         }
 

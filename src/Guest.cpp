@@ -6,6 +6,7 @@
  */
 
 #include "../include/Guest.h"
+#include "../include/Constants.h"
 #include <sstream>
 #include <stdexcept>
 #include <iomanip>
@@ -197,7 +198,7 @@ bool Guest::isValidPhone(const std::string& phone) {
     }
 
     // Мінімум 10 цифр для валідного номера
-    return digitCount >= 10;
+    return digitCount >= Constants::Limits::MIN_PHONE_DIGITS;
 }
 
 /**

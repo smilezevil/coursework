@@ -6,6 +6,7 @@
  */
 
 #include "../include/Booking.h"
+#include "../include/Constants.h"
 #include <sstream>
 #include <stdexcept>
 #include <iomanip>
@@ -196,7 +197,7 @@ bool Booking::validate() const {
  * @brief Перевірити валідність дати
  */
 bool Booking::isValidDate(const std::string& date) {
-    if (date.length() != 10) {
+    if (date.length() != Constants::Limits::DATE_LENGTH) {
         return false;
     }
 

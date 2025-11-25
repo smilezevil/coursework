@@ -6,6 +6,7 @@
  */
 
 #include "../include/BookingManager.h"
+#include "../include/Constants.h"
 #include <fstream>
 #include <algorithm>
 #include <iostream>
@@ -13,7 +14,7 @@
 /**
  * @brief Конструктор за замовчуванням
  */
-BookingManager::BookingManager() : filename("data_bookings.csv") {
+BookingManager::BookingManager() : filename(Constants::Files::BOOKINGS) {
 }
 
 /**

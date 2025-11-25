@@ -6,6 +6,7 @@
  */
 
 #include "../include/GuestManager.h"
+#include "../include/Constants.h"
 #include <fstream>
 #include <algorithm>
 #include <iostream>
@@ -13,7 +14,7 @@
 /**
  * @brief Конструктор за замовчуванням
  */
-GuestManager::GuestManager() : filename("data_guests.csv") {
+GuestManager::GuestManager() : filename(Constants::Files::GUESTS) {
 }
 
 /**

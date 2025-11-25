@@ -5,6 +5,7 @@
  * @date 2025
  */
 
+#include "../include/Constants.h"
 #include "../include/HotelManager.h"
 #include "../include/RoomManager.h"
 #include "../include/GuestManager.h"
@@ -20,11 +21,11 @@
 int main() {
     try {
         // Ініціалізація менеджерів
-        HotelManager hotelManager("data_hotels.csv");
-        RoomManager roomManager("data_rooms.csv");
-        GuestManager guestManager("data_guests.csv");
-        BookingManager bookingManager("data_bookings.csv");
-        UserManager userManager("users.txt");
+        HotelManager hotelManager(Constants::Files::HOTELS);
+        RoomManager roomManager(Constants::Files::ROOMS);
+        GuestManager guestManager(Constants::Files::GUESTS);
+        BookingManager bookingManager(Constants::Files::BOOKINGS);
+        UserManager userManager(Constants::Files::USERS);
 
         // Створення та запуск меню
         Menu menu(hotelManager, roomManager, guestManager, bookingManager, userManager);

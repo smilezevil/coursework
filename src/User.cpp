@@ -6,6 +6,7 @@
  */
 
 #include "../include/User.h"
+#include "../include/Constants.h"
 #include <sstream>
 #include <stdexcept>
 #include <iomanip>
@@ -140,7 +141,7 @@ bool User::validate() const {
  * @brief Перевірити валідність логіну
  */
 bool User::isValidUsername(const std::string& username) {
-    if (username.empty() || username.length() < 3) {
+    if (username.empty() || username.length() < Constants::Limits::MIN_USERNAME_LEN) {
         return false;
     }
 
@@ -159,7 +160,7 @@ bool User::isValidUsername(const std::string& username) {
  */
 bool User::isValidPassword(const std::string& password) {
     // Пароль має бути довжиною мінімум 4 символи
-    if (password.empty() || password.length() < 4) {
+    if (password.empty() || password.length() < Constants::Limits::MIN_PASSWORD_LEN) {
         return false;
     }
 

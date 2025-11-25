@@ -6,14 +6,15 @@
  */
 
 #include "../include/Room.h"
+#include "../include/Constants.h"
 #include <sstream>
 #include <stdexcept>
 #include <iomanip>
 
 // Ініціалізація статичних змінних
 int Room::nextId = 1;
-const double LuxuryRoom::BASE_PRICE = 2500.0;
-const double StandardRoom::BASE_PRICE = 1200.0;
+const double LuxuryRoom::BASE_PRICE = Constants::Prices::LUXURY_BASE;
+const double StandardRoom::BASE_PRICE = Constants::Prices::STANDARD_BASE;
 
 /**
  * @brief Конструктор за замовчуванням
@@ -104,7 +105,8 @@ void Room::setId(int id) { this->id = id; }
 void Room::setHotelId(int hotelId) { this->hotelId = hotelId; }
 
 void Room::setCapacity(int capacity) {
-    if (capacity != 2 && capacity != 3) {
+    if (capacity != Constants::Limits::MIN_CAPACITY &&
+        capacity != Constants::Limits::MAX_CAPACITY) {
         throw std::invalid_argument("Кількість місць має бути 2 або 3");
     }
     this->capacity = capacity;
@@ -119,7 +121,8 @@ void Room::setIsOccupied(bool occupied) {
  */
 bool Room::validate() const {
     if (hotelId <= 0) return false;
-    if (capacity != 2 && capacity != 3) return false;
+    if (capacity != Constants::Limits::MIN_CAPACITY &&
+        capacity != Constants::Limits::MAX_CAPACITY) return false;
     return true;
 }
 
@@ -237,7 +240,7 @@ RoomType LuxuryRoom::getType() const {
  * @brief Отримати назву типу
  */
 std::string LuxuryRoom::getTypeName() const {
-    return "Люкс";
+    return Constants::RoomType::LUXURY;
 }
 
 /**
@@ -261,8 +264,8 @@ void LuxuryRoom::display() const {
  * @brief Розрахувати вартість люкс-номера
  */
 double LuxuryRoom::calculatePrice() const {
-    // Базова ціна + надбавка за кожне додаткове місце понад 2
-    return BASE_PRICE + (capacity > 2 ? 500.0 : 0.0);
+    return BASE_PRICE + (capacity > Constants::Limits::MIN_CAPACITY ?
+                         Constants::Prices::LUXURY_EXTRA_PERSON : 0.0);
 }
 
 // ============================================================================
@@ -319,7 +322,7 @@ RoomType StandardRoom::getType() const {
  * @brief Отримати назву типу
  */
 std::string StandardRoom::getTypeName() const {
-    return "Стандарт";
+    return Constants::RoomType::STANDARD;
 }
 
 /**
@@ -343,6 +346,6 @@ void StandardRoom::display() const {
  * @brief Розрахувати вартість стандартного номера
  */
 double StandardRoom::calculatePrice() const {
-    // Базова ціна + надбавка за кожне додаткове місце понад 2
-    return BASE_PRICE + (capacity > 2 ? 300.0 : 0.0);
+    return BASE_PRICE + (capacity > Constants::Limits::MIN_CAPACITY ?
+                         Constants::Prices::STANDARD_EXTRA_PERSON : 0.0);
 }

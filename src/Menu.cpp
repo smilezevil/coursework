@@ -8,6 +8,7 @@
 #include "../include/Menu.h"
 #include "../include/Utils.h"
 #include "../include/Room.h"
+#include "../include/Constants.h"
 #include <iostream>
 #include <iomanip>
 
@@ -104,8 +105,7 @@ void Menu::showMainMenu() {
         "Керування бронюваннями",
         "Пошук бронювань",
         "Допомога",
-        "Адміністрування",
-        "Вихід та збереження"
+        "Адміністрування"
     };
 
     int choice = Utils::displayMenu("ГОЛОВНЕ МЕНЮ", options);
@@ -118,7 +118,6 @@ void Menu::showMainMenu() {
         case 5: searchBookings(); break;
         case 6: showHelp(); break;
         case 7: adminMenu(); break;
-        case 8:
         case 0:
             saveAllData();
             isRunning = false;
@@ -1364,7 +1363,7 @@ void Menu::showHelp() {
    - Видалення користувачів
    - Перегляд всіх користувачів системи
 
-💾 Всі дані автоматично зберігаються при виході з програми.
+    Всі дані автоматично зберігаються при виході з програми.
 
 ⚠️  ВАЖЛИВО:
    - При видаленні готелю видаляються всі його номери та бронювання
@@ -1536,7 +1535,7 @@ void Menu::loadAllData() {
     Utils::printSuccess("Дані завантажено!");
 
     // Показуємо статистику
-    std::cout << "\n📊 Статистика системи:\n";
+    std::cout << "\n Статистика системи:\n";
     std::cout << "   Готелів: " << hotelManager.getHotelCount() << std::endl;
     std::cout << "   Номерів: " << roomManager.getRoomCount() << std::endl;
     std::cout << "   Гостей: " << guestManager.getGuestCount() << std::endl;
@@ -1598,10 +1597,10 @@ int Menu::selectRoom() {
     for (size_t i = 0; i < rooms.size(); i++) {
         std::cout << (i + 1) << ". ";
         std::cout << "ID: " << rooms[i]->getId()
-                  << " | Готель ID: " << rooms[i]->getHotelId()
-                  << " | Тип: " << rooms[i]->getTypeName()
-                  << " | Місць: " << rooms[i]->getCapacity()
-                  << " | " << (rooms[i]->getIsOccupied() ? "Зайнятий ❌" : "Вільний ✅")
+                  << "  Готель ID: " << rooms[i]->getHotelId()
+                  << "  Тип: " << rooms[i]->getTypeName()
+                  << "  Місць: " << rooms[i]->getCapacity()
+                  << "  " << (rooms[i]->getIsOccupied() ? "Зайнятий" : "Вільний")
                   << std::endl;
     }
 
