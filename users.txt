@@ -1,2 +1,2 @@
-admin:admin:0
-jager:jager123:0
+admin:admin:1
+jager:jager:0
