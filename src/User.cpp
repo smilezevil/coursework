@@ -48,9 +48,7 @@ User::User(User&& other) noexcept
  * @brief Деструктор
  */
 User::~User() {
-    // Деструктор
     if (!username.empty()) {
-        // std::cout << "Користувач " << username << " знищено\n";
     }
 }
 
@@ -117,7 +115,7 @@ void User::setIsAdmin(bool isAdmin) {
  */
 void User::display() const {
     std::cout << "┌────────────────────────────────────────┐\n";
-    std::cout << "  👤 ІНФОРМАЦІЯ ПРО КОРИСТУВАЧА           \n";
+    std::cout << "        ІНФОРМАЦІЯ ПРО КОРИСТУВАЧА        \n";
     std::cout << "├────────────────────────────────────────┤\n";
     std::cout << " Логін: " << std::left << std::setw(33) << username << "\n";
     std::cout << " Роль: " << std::left << std::setw(34)

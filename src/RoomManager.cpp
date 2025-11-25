@@ -294,12 +294,12 @@ void RoomManager::sortByCapacity() {
  */
 void RoomManager::displayAll() const {
     if (rooms.empty()) {
-        std::cout << "\n📋 Список номерів порожній.\n" << std::endl;
+        std::cout << "\nСписок номерів порожній.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 СПИСОК НОМЕРІВ (Всього: " << rooms.size() << ")" << std::endl;
+    std::cout << "СПИСОК НОМЕРІВ (Всього: " << rooms.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 
     for (const auto& room : rooms) {
@@ -315,12 +315,12 @@ void RoomManager::displayByHotelId(int hotelId) const {
     auto hotelRooms = searchByHotelId(hotelId);
 
     if (hotelRooms.empty()) {
-        std::cout << "\n📋 У цьому готелі немає номерів.\n" << std::endl;
+        std::cout << "\nУ цьому готелі немає номерів.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 НОМЕРИ ГОТЕЛЮ (ID: " << hotelId << ", Всього: "
+    std::cout << "НОМЕРИ ГОТЕЛЮ (ID: " << hotelId << ", Всього: "
               << hotelRooms.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 

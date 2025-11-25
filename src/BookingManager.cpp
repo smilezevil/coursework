@@ -271,12 +271,12 @@ void BookingManager::sortByGuestId() {
  */
 void BookingManager::displayAll() const {
     if (bookings.empty()) {
-        std::cout << "\n📋 Список бронювань порожній.\n" << std::endl;
+        std::cout << "\nСписок бронювань порожній.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 СПИСОК БРОНЮВАНЬ (Всього: " << bookings.size() << ")" << std::endl;
+    std::cout << "СПИСОК БРОНЮВАНЬ (Всього: " << bookings.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 
     for (const auto& booking : bookings) {
@@ -292,12 +292,12 @@ void BookingManager::displayByGuestId(int guestId) const {
     auto guestBookings = searchByGuestId(guestId);
 
     if (guestBookings.empty()) {
-        std::cout << "\n📋 У цього гостя немає бронювань.\n" << std::endl;
+        std::cout << "\nУ цього гостя немає бронювань.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 БРОНЮВАННЯ ГОСТЯ (ID: " << guestId << ", Всього: "
+    std::cout << "БРОНЮВАННЯ ГОСТЯ (ID: " << guestId << ", Всього: "
               << guestBookings.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 
@@ -314,12 +314,12 @@ void BookingManager::displayByRoomId(int roomId) const {
     auto roomBookings = searchByRoomId(roomId);
 
     if (roomBookings.empty()) {
-        std::cout << "\n📋 Для цього номера немає бронювань.\n" << std::endl;
+        std::cout << "\nДля цього номера немає бронювань.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 БРОНЮВАННЯ НОМЕРА (ID: " << roomId << ", Всього: "
+    std::cout << "БРОНЮВАННЯ НОМЕРА (ID: " << roomId << ", Всього: "
               << roomBookings.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 

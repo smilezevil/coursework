@@ -230,12 +230,12 @@ void GuestManager::sortByFullName() {
  */
 void GuestManager::displayAll() const {
     if (guests.empty()) {
-        std::cout << "\n📋 Список гостей порожній.\n" << std::endl;
+        std::cout << "\nСписок гостей порожній.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 СПИСОК ГОСТЕЙ (Всього: " << guests.size() << ")" << std::endl;
+    std::cout << "СПИСОК ГОСТЕЙ (Всього: " << guests.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 
     for (const auto& guest : guests) {

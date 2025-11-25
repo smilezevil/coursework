@@ -150,7 +150,7 @@ void Guest::setPhone(const std::string& phone) {
  */
 void Guest::display() const {
     std::cout << "┌────────────────────────────────────────┐\n";
-    std::cout << "  👤 ІНФОРМАЦІЯ ПРО ГОСТЯ                 \n";
+    std::cout << "           ІНФОРМАЦІЯ ПРО ГОСТЯ           \n";
     std::cout << "├────────────────────────────────────────┤\n";
     std::cout << " ID: " << std::left << std::setw(36) << id << "\n";
     std::cout << " Прізвище: " << std::left << std::setw(30) << lastName << "\n";

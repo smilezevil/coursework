@@ -226,12 +226,12 @@ void HotelManager::sortByStars() {
  */
 void HotelManager::displayAll() const {
     if (hotels.empty()) {
-        std::cout << "\n📋 Список готелів порожній.\n" << std::endl;
+        std::cout << "\nСписок готелів порожній.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 СПИСОК ГОТЕЛІВ (Всього: " << hotels.size() << ")" << std::endl;
+    std::cout << "СПИСОК ГОТЕЛІВ (Всього: " << hotels.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 
     for (const auto& hotel : hotels) {

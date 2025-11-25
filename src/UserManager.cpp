@@ -214,12 +214,12 @@ size_t UserManager::getUserCount() const {
  */
 void UserManager::displayAll() const {
     if (users.empty()) {
-        std::cout << "\n📋 Список користувачів порожній.\n" << std::endl;
+        std::cout << "\nСписок користувачів порожній.\n" << std::endl;
         return;
     }
 
     std::cout << "\n" << std::string(50, '=') << std::endl;
-    std::cout << "📋 СПИСОК КОРИСТУВАЧІВ (Всього: " << users.size() << ")" << std::endl;
+    std::cout << "СПИСОК КОРИСТУВАЧІВ (Всього: " << users.size() << ")" << std::endl;
     std::cout << std::string(50, '=') << "\n" << std::endl;
 
     for (const auto& user : users) {

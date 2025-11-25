@@ -165,7 +165,7 @@ void Booking::setCheckOutDate(const std::string& checkOutDate) {
  */
 void Booking::display() const {
     std::cout << "┌────────────────────────────────────────┐\n";
-    std::cout << "  📅 ІНФОРМАЦІЯ ПРО БРОНЮВАННЯ            \n";
+    std::cout << "        ІНФОРМАЦІЯ ПРО БРОНЮВАННЯ         \n";
     std::cout << "├────────────────────────────────────────┤\n";
     std::cout << " ID бронювання: " << std::left << std::setw(23) << id << "\n";
     std::cout << " ID гостя: " << std::left << std::setw(30) << guestId << "\n";

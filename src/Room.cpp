@@ -245,13 +245,13 @@ std::string LuxuryRoom::getTypeName() const {
  */
 void LuxuryRoom::display() const {
     std::cout << "┌────────────────────────────────────────┐\n";
-    std::cout << "  🌟 ЛЮКС НОМЕР                           \n";
+    std::cout << "                 ЛЮКС НОМЕР               \n";
     std::cout << "├────────────────────────────────────────┤\n";
     std::cout << " ID номера: " << std::left << std::setw(27) << id << "\n";
     std::cout << " ID готелю: " << std::left << std::setw(27) << hotelId << "\n";
     std::cout << " Місць: " << std::left << std::setw(31) << capacity << "\n";
     std::cout << " Статус: " << std::left << std::setw(30)
-              << (isOccupied ? "Зайнятий ❌" : "Вільний ✅") << "\n";
+              << (isOccupied ? "Зайнятий" : "Вільний") << "\n";
     std::cout << " Ціна: " << std::left << std::setw(32)
               << (std::to_string((int)calculatePrice()) + " грн/доба") << "\n";
     std::cout << "└────────────────────────────────────────┘\n";
@@ -327,13 +327,13 @@ std::string StandardRoom::getTypeName() const {
  */
 void StandardRoom::display() const {
     std::cout << "┌────────────────────────────────────────┐\n";
-    std::cout << "  🏨 СТАНДАРТНИЙ НОМЕР                    \n";
+    std::cout << "             СТАНДАРТНИЙ НОМЕР            \n";
     std::cout << "├────────────────────────────────────────┤\n";
     std::cout << " ID номера: " << std::left << std::setw(27) << id << "\n";
     std::cout << " ID готелю: " << std::left << std::setw(27) << hotelId << "\n";
     std::cout << " Місць: " << std::left << std::setw(31) << capacity << "\n";
     std::cout << " Статус: " << std::left << std::setw(30)
-              << (isOccupied ? "Зайнятий ❌" : "Вільний ✅") << "\n";
+              << (isOccupied ? "Зайнятий" : "Вільний") << "\n";
     std::cout << " Ціна: " << std::left << std::setw(32)
               << (std::to_string((int)calculatePrice()) + " грн/доба") << "\n";
     std::cout << "└────────────────────────────────────────┘\n";
