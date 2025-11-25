@@ -39,6 +39,7 @@ set(HEADERS
         ${CMAKE_SOURCE_DIR}/include/UserManager.h
         ${CMAKE_SOURCE_DIR}/include/Utils.h
         ${CMAKE_SOURCE_DIR}/include/Menu.h
+        include/Constants.h
 )
 
 # Створення виконуваного файлу
