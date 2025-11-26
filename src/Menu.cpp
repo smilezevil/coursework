@@ -49,11 +49,11 @@ void Menu::run() {
         showMainMenu();
     }
 
-    // Зберегти дані перед виходом
+    // Зберегти дані перед виходом (тільки один раз)
     saveAllData();
 
     Utils::clearScreen();
-    Utils::printSuccess("До побачення! Дані збережено.");
+    Utils::printSuccess("До побачення!");
 }
 
 // ==================== АВТОРИЗАЦІЯ ====================
@@ -119,7 +119,7 @@ void Menu::showMainMenu() {
         case 6: showHelp(); break;
         case 7: adminMenu(); break;
         case 0:
-            saveAllData();
+            // Просто завершуємо роботу циклу
             isRunning = false;
             break;
         default:
